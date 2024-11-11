@@ -84,6 +84,15 @@ class Application {
         menu.clean(window.btn)
     }
     
+    private func recoverLastWindow() {
+        if let last = windows.last,
+           let isMinimized = last.axWindow.isMinimized(), !isMinimized {
+            lastWindow = last
+            menu.show(last.btn)
+        }
+    }
+    
+    // MARK: window notification
     /// remove last window btn, then add new window into menubar
     func notifyWindowActivated(_ cond: WindowCond) throws {
         guard let window = findWindow(cond) else { throw ErrCode() }
@@ -91,28 +100,18 @@ class Application {
         appendWindow(window)
     }
     
-    // MARK: window notification
     /// first remove window,
     /// then add the most recent window to menubar.
     func notifyWindowClosed(_ cond: WindowCond) {
         removeWindow(cond)
-        
-        if let last = windows.last {
-            lastWindow = last
-            menu.show(last.btn)
-        }
+        recoverLastWindow()
     }
     
     func notifyWindowMinimized(_ cond: WindowCond) {
         guard let window = findWindow(cond) else { return }
         removeWindow(cond)
-        
-        if let last = windows.last {
-            lastWindow = last
-            menu.show(last.btn)
-        }
-        
         windows.insert(window, at: 0) // move minimized window to windows head.
+        recoverLastWindow()
     }
     
     
@@ -148,7 +147,6 @@ class Application {
             appendWindow(last)
         }
     }
-
 }
 
 extension Application {
@@ -167,6 +165,4 @@ extension Application {
     func findWindow(_ cond: WindowCond) -> Window? {
         windows.first(where: cond)
     }
-    
-
 }
