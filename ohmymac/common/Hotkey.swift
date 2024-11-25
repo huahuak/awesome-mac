@@ -20,10 +20,12 @@ class Hotkey {
         return eventFlags.contains(flag) && allFlags.subtracting(flag).intersection(eventFlags).isEmpty
     }
     // MARK: shortcut
-    func shortcut(keyCode: KeyCode, modifiers: NSEvent.ModifierFlags, handler: @escaping Fn) {
+    func shortcut(_ keyCode: KeyCode, modifiers: NSEvent.ModifierFlags? = nil, handler: @escaping Fn = {}) {
         let fn: (NSEvent) -> Void = { [self] event in
             if event.keyCode != keyCode { return }
-            if !flagsEq(eventFlags: event.modifierFlags, flag: modifiers) { return }
+            if let modifiers = modifiers {
+                if !flagsEq(eventFlags: event.modifierFlags, flag: modifiers) { return }
+            }
             handler()
         }
         if let monitor = NSEvent.addGlobalMonitorForEvents(matching: [.flagsChanged, .keyDown], handler: fn) {

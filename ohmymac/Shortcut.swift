@@ -17,7 +17,7 @@ func startShortcut() {
 
 fileprivate func initShortcut() {
     // translate
-    Hotkey().doubleTrigger(keyCode: .option, modifiers: .shift, handler: translate)
+    Hotkey().doubleTrigger(keyCode: .shift, modifiers: .option, handler: translate)
 }
 
 func percentExec(_ width: Double, _ height: Double = 1) -> Fn {

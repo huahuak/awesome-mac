@@ -23,6 +23,7 @@
 		475247A72B96DDF70084460B /* FocusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752479D2B96DDF70084460B /* FocusManager.swift */; };
 		475247AA2B96DDF70084460B /* GoogleSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475247A12B96DDF70084460B /* GoogleSearch.swift */; };
 		475247AC2B96DDF70084460B /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475247A32B96DDF70084460B /* Translate.swift */; };
+		477C3A742CF4CD7C00FB6F91 /* KeyPressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477C3A732CF4CD7C00FB6F91 /* KeyPressEvent.swift */; };
 		4783D09E2C80A00600E4A694 /* ScreenTimeReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783D09D2C80A00300E4A694 /* ScreenTimeReminder.swift */; };
 		4783D0A02C80B95800E4A694 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783D09F2C80B95400E4A694 /* Notification.swift */; };
 		478C91692BBC3DA60031E95C /* Hotkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478C91682BBC3DA60031E95C /* Hotkey.swift */; };
@@ -53,6 +54,7 @@
 		4752479D2B96DDF70084460B /* FocusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusManager.swift; sourceTree = "<group>"; };
 		475247A12B96DDF70084460B /* GoogleSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSearch.swift; sourceTree = "<group>"; };
 		475247A32B96DDF70084460B /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
+		477C3A732CF4CD7C00FB6F91 /* KeyPressEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPressEvent.swift; sourceTree = "<group>"; };
 		4783D09D2C80A00300E4A694 /* ScreenTimeReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeReminder.swift; sourceTree = "<group>"; };
 		4783D09F2C80B95400E4A694 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		478C91682BBC3DA60031E95C /* Hotkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hotkey.swift; sourceTree = "<group>"; };
@@ -106,16 +108,17 @@
 		4752476B2B96DA030084460B /* ohmymac */ = {
 			isa = PBXGroup;
 			children = (
-				47EF14902C5070BF00E83209 /* Info.plist */,
 				47C9DEB12BBAB266002189C6 /* ohmymac.entitlements */,
 				475247862B96DC860084460B /* ohmymac-Bridging-Header.h */,
+				47EF14902C5070BF00E83209 /* Info.plist */,
 				4752478C2B96DC860084460B /* AppDelegate.swift */,
 				4752478A2B96DC860084460B /* main.swift */,
+				4783D09D2C80A00300E4A694 /* ScreenTimeReminder.swift */,
+				475247892B96DC860084460B /* Shortcut.swift */,
+				47A8BCD42BBB239900DCDA3C /* common */,
 				4752479F2B96DDF70084460B /* function */,
 				4752479A2B96DDF70084460B /* ui */,
-				47A8BCD42BBB239900DCDA3C /* common */,
 				47A2C42F2BBF44B300F972F8 /* WindowManager */,
-				475247892B96DC860084460B /* Shortcut.swift */,
 			);
 			path = ohmymac;
 			sourceTree = "<group>";
@@ -135,9 +138,9 @@
 			children = (
 				471D00A42C7CC518002639D1 /* ChangeInputSource.swift */,
 				475247A12B96DDF70084460B /* GoogleSearch.swift */,
-				4783D09D2C80A00300E4A694 /* ScreenTimeReminder.swift */,
 				473715312BA21245003275F2 /* SelectText.swift */,
 				475247A32B96DDF70084460B /* Translate.swift */,
+				477C3A732CF4CD7C00FB6F91 /* KeyPressEvent.swift */,
 			);
 			path = function;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				4783D09E2C80A00600E4A694 /* ScreenTimeReminder.swift in Sources */,
 				4752478D2B96DC860084460B /* Menu.swift in Sources */,
 				471F0C6A2BB976AC00E00259 /* AXUIElementHelper.swift in Sources */,
+				477C3A742CF4CD7C00FB6F91 /* KeyPressEvent.swift in Sources */,
 				4783D0A02C80B95800E4A694 /* Notification.swift in Sources */,
 				475247902B96DC860084460B /* main.swift in Sources */,
 				475247A72B96DDF70084460B /* FocusManager.swift in Sources */,
