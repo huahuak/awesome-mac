@@ -20,7 +20,7 @@ class Menu {
     }()
     let busyBtnLock = Lock()
     var viewRecordsStack: [NSView] = []
-    let maxLimit = 3
+    let maxLimit = 5
     
     
     init() {
