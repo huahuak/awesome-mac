@@ -10,8 +10,10 @@ import AppKit
 import Cocoa
 
 var windowManager: WindowManager? = nil
+private var backgroundThread: BackgroundThread?
 
 func startWindowMenuManager() {
+    backgroundThread = BackgroundThread() // must to init before windowManager.
     windowManager = WindowManager()
 }
 
@@ -246,7 +248,23 @@ class WindowSwitchShortcut {
         }
         wss.eventTap = eventTap
         let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
-        CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
+        CFRunLoopAddSource(backgroundThread!.backgroundRunLoop, runLoopSource, .defaultMode)
         CGEvent.tapEnable(tap: eventTap, enable: true)
     }
 }
+
+private class BackgroundThread {
+    var backgroundRunLoop : CFRunLoop?
+    var thread : Thread?
+    
+    init() {
+        thread = Thread {
+            while true {
+                self.backgroundRunLoop = CFRunLoopGetCurrent()
+                CFRunLoopRun()
+            }
+        }
+        thread?.start()
+    }
+}
+

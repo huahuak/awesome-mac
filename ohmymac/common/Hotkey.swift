@@ -19,6 +19,7 @@ class Hotkey {
     private func flagsEq(eventFlags: NSEvent.ModifierFlags, flag : NSEvent.ModifierFlags) -> Bool {
         return eventFlags.contains(flag) && allFlags.subtracting(flag).intersection(eventFlags).isEmpty
     }
+    
     // MARK: shortcut
     func shortcut(_ keyCode: KeyCode, modifiers: NSEvent.ModifierFlags? = nil, handler: @escaping Fn = {}) {
         let fn: (NSEvent) -> Void = { [self] event in
