@@ -166,6 +166,10 @@ class Window: Equatable {
                 close()
                 return
             }
+            if event.modifierFlags.contains(.control) {
+                minimize()
+                return
+            }
             focus()
         }
     }
