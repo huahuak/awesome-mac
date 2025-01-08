@@ -20,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         startShortcut()
         startWindowMenuManager()
         startScreenTimeReminder(interval: 3600)
+        startAirpodsService()
         NSApp.setActivationPolicy(.accessory)
         NSApp.activate(ignoringOtherApps: true)
     }
